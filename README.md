@@ -1,4 +1,4 @@
-<h1 align="center">#Documentation Study Flutter</h1>
+<h1 align="center">Documentation Study Flutter</h1>
 
 <h3 align="left">Languages and Tools:</h3>
 <p align="left"> <a href="https://developer.android.com" target="_blank" rel="noreferrer"> <a href="https://dart.dev" target="_blank" rel="noreferrer">
