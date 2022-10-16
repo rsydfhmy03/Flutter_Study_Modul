@@ -1,4 +1,4 @@
-import 'dart:html';
+// import 'dart:html';
 
 import 'package:flutter/material.dart';
 
@@ -50,7 +50,8 @@ class _HomeState extends State<Home> {
               Colors.purpleAccent,
               Colors.deepPurple
             ])),
-        //add acr 22
+        //end code acr21
+        //add code acr 22
         child: new PageView.builder(
           controller: new PageController(viewportFraction: 0.8),
           itemCount: gambar.length,
@@ -98,16 +99,45 @@ class _HomeState extends State<Home> {
   }
 }
 
-class Halamandua extends StatelessWidget {
+class Halamandua extends StatefulWidget {
   Halamandua({required this.gambar, required this.colors});
   final String gambar;
   final Color colors;
+
+  @override
+  State<Halamandua> createState() => _HalamanduaState();
+}
+
+class _HalamanduaState extends State<Halamandua> {
+//add code acr23
+  Color warna = Colors.grey;
+
+  void _pilihannya(Pilihan pilihan) {
+    setState(() {
+      warna = pilihan.warna;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return Scaffold(
       appBar: new AppBar(
-        title: new Text("BT21"),
-        backgroundColor: Colors.purpleAccent,
+        title: new AppBar(
+            title: new Text("BT21"),
+            backgroundColor: Colors.purpleAccent,
+            actions: <Widget>[
+              new PopupMenuButton<Pilihan>(
+                onSelected: _pilihannya,
+                itemBuilder: (BuildContext context) {
+                  return listPilihan.map((Pilihan x) {
+                    return new PopupMenuItem(
+                      child: new Text(x.teks),
+                      value: x,
+                    );
+                  }).toList();
+                },
+              )
+            ]),
       ),
       body: new Stack(
         children: <Widget>[
@@ -118,31 +148,42 @@ class Halamandua extends StatelessWidget {
                     colors: [Colors.purple, Colors.white, Colors.deepPurple])),
           ),
           new Center(
-            child: new Hero(
-                tag: gambar,
-                child: new ClipOval(
-                  child: new SizedBox(
-                    width: 200.0,
-                    height: 200.0,
-                    child: new Material(
-                      child: new InkWell(
-                        onTap: () => Navigator.of(context).pop(),
-                        child: new Flexible(
-                            flex: 1,
-                            child: Container(
-                              color: colors,
-                              child: new Image.asset(
-                                "img/$gambar",
-                                fit: BoxFit.cover,
-                              ),
-                            )),
+            child: new ClipOval(
+              child: new SizedBox(
+                width: 200.0,
+                height: 200.0,
+                child: new Material(
+                  child: new InkWell(
+                    onTap: () => Navigator.of(context).pop,
+                    child: new Flexible(
+                      flex: 1,
+                      child: Container(
+                        color: widget.colors,
+                        child: new Image.asset(
+                          "img/${widget.gambar}",
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ),
-                )),
+                ),
+              ),
+            ),
           )
         ],
       ),
     );
   }
 }
+
+class Pilihan {
+  const Pilihan({required this.teks, required this.warna});
+  final String teks;
+  final Color warna;
+}
+
+List<Pilihan> listPilihan = const <Pilihan>[
+  const Pilihan(teks: "red", warna: Colors.red),
+  const Pilihan(teks: "Green", warna: Colors.green),
+  const Pilihan(teks: "Blue", warna: Colors.blue),
+];
