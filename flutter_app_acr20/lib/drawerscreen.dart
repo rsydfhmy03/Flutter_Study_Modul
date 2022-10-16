@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class DrawerScreen extends StatefulWidget {
   @override
   _DrawwerScreenState createState() => _DrawwerScreenState();
@@ -13,7 +14,8 @@ class _DrawwerScreenState extends State<DrawerScreen> {
       children: <Widget>[
         UserAccountsDrawerHeader(
           accountName: Text("Fahmy Rosyadi"),
-          currentAccountPicture: CircleAvatar(backgroundImage: AssetImage("")),
+          currentAccountPicture:
+              CircleAvatar(backgroundImage: AssetImage("img/rsydfhmy.jpg")),
           accountEmail: Text("fahmyrosyadi29@gmail.com"),
         ),
         DrawerListTile(
