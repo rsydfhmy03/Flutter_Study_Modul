@@ -45,7 +45,15 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
-
+assets:
+- img/chimmy.gif
+- img/cooky.gif
+- img/koya.gif
+- img/mang.gif
+- img/rj.gif
+- img/shooky.gif
+- img/tata.gif
+- img/van.gif
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
