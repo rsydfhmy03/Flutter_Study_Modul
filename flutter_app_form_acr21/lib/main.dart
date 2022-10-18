@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
     title: "Belajar Form Flutter",
     home: BelajarForm(),
   )); // MaterialApp
@@ -55,6 +56,7 @@ class _BelajarFormState extends State<BelajarForm> {
                     obscureText: true,
                     decoration: new InputDecoration(
                       labelText: "Password",
+                      hintText: "Masukan Password ",
                       icon: Icon(Icons.security),
                       border: OutlineInputBorder(
                           borderRadius: new BorderRadius.circular(7.0)),
@@ -83,7 +85,7 @@ class _BelajarFormState extends State<BelajarForm> {
                   subtitle: Text('Dart, Nodejs, PHP, Java, dll'),
                   value: nilaiSwitch,
                   activeTrackColor: Colors.pink[100],
-                  activeColor: Colors.red,
+                  activeColor: Colors.green,
                   onChanged: (value) {
                     setState(() {
                       nilaiSwitch = value;
@@ -116,6 +118,8 @@ class _BelajarFormState extends State<BelajarForm> {
                   width: double.infinity,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
+                      minimumSize: Size.fromHeight(50),
+                      textStyle: const TextStyle(fontSize: 18),
                       primary: Theme.of(context).primaryColor,
                     ),
                     onPressed: () {
